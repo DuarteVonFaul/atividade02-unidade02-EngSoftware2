@@ -13,6 +13,7 @@ class DataBase:
         return self.SessionLocal()
     
     def migration(self):
+        from .models import cidade, cliente, frete
         Base.metadata.create_all(self.engine)
     
     def drop(self):

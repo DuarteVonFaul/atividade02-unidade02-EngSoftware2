@@ -41,8 +41,8 @@ preview = true
 select = ['I', 'F', 'E', 'W', 'PL', 'PT']
 
 [tool.taskipy.tasks]
-run = 'fastapi dev api/app.py'
-test = 'pytest -s -x --cov=aou -vv'
+run = 'fastapi dev src/app.py'
+test = 'pytest -v'
 post_test = 'converage html'
 lint = 'ruff check . && ruff check . --fix'
 format = 'ruff check . && ruff format .'

@@ -25,3 +25,8 @@ class FreteRead(FreteBase):
 
     class Config:
         from_attributes = True
+
+    
+class CidadeMaisFrete(BaseModel):
+    nome:str
+    quantidade:int
