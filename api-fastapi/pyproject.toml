@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "api-fastapi"
+version = "0.1.0"
+description = ""
+authors = ["DuarteVonFaul <duarteriograndense@gmail.com>"]
+readme = "README.md"
+packages = [{include = "api_fastapi", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+fastapi = {extras = ["standard"], version = "^0.115.14"}
+pydantic = {extras = ["email"], version = "^2.11.7"}
+sqlalchemy = "^2.0.41"
+pydentic = "^0.0.1.dev3"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.12.1"
+pytest = "^8.4.1"
+pytest-cov = "^6.2.1"
+taskipy = "^1.14.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.init_options]
+pythonpath = '.'
+addopts = '-p no:warnings'
+
+[tool.ruff]
+line-length = 79
+extend-exclude = ['migrations']
+
+[tool.ruff.format]
+preview = true
+quote-style = 'single'
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+
+[tool.taskipy.tasks]
+run = 'fastapi dev api/app.py'
+test = 'pytest -s -x --cov=aou -vv'
+post_test = 'converage html'
+lint = 'ruff check . && ruff check . --fix'
+format = 'ruff check . && ruff format .'

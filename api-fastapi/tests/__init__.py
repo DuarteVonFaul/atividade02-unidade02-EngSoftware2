@@ -1,0 +1,3 @@
+from src.repositories.cidadeRepository import CidadeRepository
+from src.repositories.clienteRepository import ClienteRepository
+from src.repositories.freteRepository import FreteRepository
